@@ -10,6 +10,7 @@
 
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -29,6 +30,11 @@
             android:name="ru.lizaalert.hotline.ui.SettingsActivity"
             android:label="@string/action_settings"/>
         <activity android:name="com.vk.sdk.VKOpenAuthActivity" />
+        <receiver android:name="SmsReciver">
+            <intent-filter android:priority="100">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
 
     </application>
 
